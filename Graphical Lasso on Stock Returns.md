@@ -61,11 +61,11 @@ cor_matrix <- cor(stock_returns)
 corrplot(cor_matrix, main = "Stock Returns Heatmap")
 ```
 
-![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 This heatmap shows the correlation that is found within the stock
 returns dataset. The correlation remains at a pretty consistent rate for
-the majority of the dataset. However, there is a significantly amount of
+the majority of the dataset. However, there is a significant amount of
 both strong positive and negative correlation that lives within the
 financial stock sector.
 
@@ -413,7 +413,7 @@ for (i in 1:length(lambda_vals)){
 }
 ```
 
-![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-6.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-7.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-8.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-9.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-10.png)<!-- -->
+![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-6.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-7.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-8.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-9.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-2-10.png)<!-- -->
 
 ``` r
 edge_frequency <- apply(keep_edges, c(1, 2), sum)
@@ -764,7 +764,7 @@ persistent_edges
     ## [340,]  28  30
 
 This gives all the persistent edges that occur as the λ value increases
-with the Graphical Lasso function. Since by the end it is still a pretty
+with the Graphical Lasso function. Since, by the end, it is still a pretty
 large graph with lots of edges, these have been sorted as well.
 
 ``` r
@@ -784,7 +784,7 @@ important_edges
     ##  [9,]   5   2
     ## [10,]  13   2
 
-Now let’s take a look at the data pre-Covid (2018-2019) and post-Covid
+Now let’s take a look at the data pre-COVID (2018-2019) and post-COVID
 (2021-2023).
 
 ``` r
@@ -988,7 +988,7 @@ for (i in 1:length(lambda_vals)){
 }
 ```
 
-![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-3.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-4.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-5.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-6.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-7.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-8.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-9.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-10.png)<!-- -->
+![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-3.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-4.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-5.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-6.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-7.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-8.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-9.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-10.png)<!-- -->
 
 ``` r
 post_covid_scaled <- scale(post_covid)
@@ -1163,9 +1163,9 @@ for (i in 1:length(lambda_vals)){
 }
 ```
 
-![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-11.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-12.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-13.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-14.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-15.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-16.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-17.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-18.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-19.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-20.png)<!-- -->
-These graphs show the graphical lasso as applied to the pre-covid and
-post-covid stock returns data. To accurately compare these, I will now
+![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-11.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-12.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-13.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-14.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-15.png)<!-- -->![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-16.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-17.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-18.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-19.png)<!-- -->![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-4-20.png)<!-- -->
+These graphs show the graphical lasso as applied to the pre-COVID and
+post-COVID stock returns data. To accurately compare these, I will now
 compute the graphical lasso using the most appropriate value for λ as
 determined by examining these graphs thoroughly.
 
@@ -1190,17 +1190,17 @@ plot(g.lasso_pre, main = "Pre-Covid Graphical Lasso")
 plot(g.lasso_post, main = "Post-Covid Graphical Lasso")
 ```
 
-![](Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](Graphs&Images/Graphical-Lasso-on-Stock-Returns_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-Using the best value for the amount of regularization for both of the
-pre and post covid data, the graphical lasso can be seen here. The
-biggest difference I see between these graphs, is the number of
-connections to the technology sectors. Post-covid, the technology
-sectors are less connected with the other sectors which indicates that
-there has been a shift into technology being more conditionally
-independent of other factors that affect stocks. Before in the pre-covid
+Using the best value for the amount of regularization for both the
+pre- and post-COVID data, the graphical lasso can be seen here. The
+biggest difference I see between these graphs is the number of
+connections to the technology sectors. Post-COVID, the technology
+sectors are less connected with the other sectors, which indicates that
+there has been a shift in technology being more conditionally
+independent of other factors that affect stocks. Before the COVID-19
 era, the technology sector was more dependent on the other sectors.
 Also, two nodes from the consumer sector have become conditionally
-independent of the rest of the sectors post-covid. In the pre-covid
+independent of the rest of the sectors post-COVID. In the pre-COVID
 data, these two nodes were in the center and significantly dependent on
 the other data.
