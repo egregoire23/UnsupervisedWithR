@@ -34,7 +34,7 @@ str(cad1)
 boxplot(cad1, main = "Distribution of Factor Variables in CAD1 data")
 ```
 
-![](Bayesian-Network-on-Heart-Disease-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Graphs&Images/Bayesian-Network-on-Heart-Disease-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 This graph shows the distribution of the features in the Danish Heart
 Clinic coronary heart disease data. For the most part, since these
@@ -105,12 +105,12 @@ arc.strength(cad_bn, data = cad1, criterion = "bic")
 plot(cad_bn, main = "Bayesian Network of CAD data")
 ```
 
-![](Bayesian-Network-on-Heart-Disease-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Graphs&Images/Bayesian-Network-on-Heart-Disease-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 This plot shows the resulting Bayesian Network that was formed from the
 hill-climbing algorithm on the Danish Heart Clinic coronary heart
 disease data. In the network, we can see the fourteen discrete variables
-and how they relate to one another including their directions.
+and how they relate to one another, including their directions.
 
 ``` r
 modelstring(cad_bn)
@@ -159,8 +159,8 @@ query_d
 
     ## [1] 0.2110553
 
-A second patient is male and has an atypical angina pectoris. The
+A second patient is male and has atypical angina pectoris. The
 probability that they will have coronary heart disease is in the low
 20%. Compared to the baseline probability of having this coronary heart
-disease, this male patient with an atypical angina pectoris does not
+disease, this male patient with atypical angina pectoris does not
 appear to be at high risk for the disease.
