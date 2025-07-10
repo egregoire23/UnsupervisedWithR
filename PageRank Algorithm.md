@@ -32,7 +32,7 @@ g <- graph_from_data_frame(relations, directed = TRUE, vertices = nodes)
 plot(g, main = "Web Page DAG")
 ```
 
-![](PageRank-algorithm_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](Graphs&Images/PageRank-algorithm_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 This plot shows the structure of the directed graph between the web
 pages. The structure can also be seen as a matrix with the relations
@@ -74,7 +74,7 @@ g2 <- graph_from_data_frame(relations2, directed = TRUE, vertices = nodes2)
 plot(g2, main = "Web Page DAG with Missing Outbound Links")
 ```
 
-![](PageRank-algorithm_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Graphs&Images/PageRank-algorithm_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 pr_scores2 <- page_rank(g2, damping = damping_fac)$vector
@@ -84,14 +84,14 @@ pr_scores2
     ##      PageA      PageB      PageC      PageD      PageE 
     ## 0.35436167 0.16119385 0.22725626 0.16694674 0.09024148
 
-After removing all outgoing links from Page A, but still keeping inbound
+After removing all outgoing links from Page A, but still keeping the inbound
 links to Page A, its PageRank score did not change very drastically.
 However, the other pages’ PageRank scores did change drastically.
 
 The damping factor accounts for the fact that at any given point, the
 user will no longer want to continue on clicking forward with links but
-instead chose a new page from scratch at random. To account for this
-randomness and realistic nature that a user will not continue forward
+instead choose a new page from scratch at random. To account for this
+randomness and the realistic nature that a user will not continue forward
 forever, the damping factor is used. It affects the ranking of the pages
 because the probability of the rank is multiplied by a constant damping
 factor. If the damping factor is .15, this means that 15% of the time,
@@ -143,6 +143,6 @@ pr_scores_01
 In this example, the damping factor had a significant influence on the
 PageRank scores. With the higher damping factors of .85 and .99, there
 is a clear pattern of which pages are most likely to be clicked on and
-two pages that are rarely visited. However with the very low damping
+two pages that are rarely visited. However, with the very low damping
 factors of .25 and .01, the randomness takes hold and nearly all of the
 pages are equally likely to be clicked on.
