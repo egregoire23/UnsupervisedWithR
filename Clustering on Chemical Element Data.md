@@ -97,7 +97,7 @@ summary(chorSub)
 pairs(chorSub)
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 This basic pairs plot shows a breakdown of how each variable relates to
 each other. This plot is a useful starting point to get a scope of which
@@ -108,7 +108,7 @@ significant amount of correlation between nearly all of these variables.
 boxplot(chorSub, main = "Boxplot of C-horizon data", xlab = "Chemical Elements", ylab = "Range")
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 This shows the distribution of values for each variable. This graph is
 useful as it shows the outliers that persist in many of the chemicals.
@@ -120,7 +120,7 @@ gap_kmeans <- clusGap(chorSub, kmeans, nstart = 25, K.max = 10, B = 1000)
 plot(gap_kmeans, main = "Gap Statistic: kmeans")
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 This graph shows the performance of k-means with different values of k
 for the number of clusters used. Typically, we would like to see a
@@ -142,15 +142,15 @@ plot(k_values, within_cluster, type="b", main = "K-Values on the Total Within-Cl
 axis(1, at=k_values, labels = TRUE) 
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 The second technique that I used to assist in determining a value for k
 was to plot the within-cluster sum of squares of the k-means algorithms
-for different values of k. Again, there is not definitive elbow but this
-method does show more covergence than the gap statistic. Based off of
-the Within-cluster sum of squares and the gap statistic, I belive that
+for different values of k. Again, there is no definitive elbow, but this
+method does show more convergence than the gap statistic. Based on
+the Within-cluster sum of squares and the gap statistic, I believe that
 the best value for k is 5. This is because, when looking at the gap
-statistic plot, the values for 3 and 4 are very similar but 5 provides
+statistic plot, the values for 3 and 4 are very similar, but 5 provides
 more distance. Then, on the within-cluster sum of squares, the slope
 between 5 and 6 begins to decrease much more than the first few values.
 
@@ -176,7 +176,7 @@ best_kmeans$cluster
     ## 250 
     ##   2
 
-After choosing the best k value for k to be 5, the best k-means
+After choosing the best k value for k = 5, the best k-means
 algorithm was created with 5 clusters. The results are shown here.
 
 Implementing Hierarchical clustering:
@@ -188,7 +188,7 @@ gap_hclust <- clusGap(chorSub, hier_clust, K.max = 10, B = 1000)
 plot(gap_hclust, main = "Gap Statistic: Hierarchical Clustering")
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 This graph shows the gap statistic when performed using hierarchical
 clustering. Based on this graph, the best value for k, that will denote
@@ -202,13 +202,13 @@ best_hclust <- hclust(d, method = "ave")
 plot(best_hclust, main = "C-Horizon Cluster Dendogram", xlab = "Dissimilarity")
 ```
 
-![](Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](Graphs&Images/Clustering-on-Chemical-Element-Data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
-This graph shows the dendogram of clusters formed from the C-horizon
+This graph shows the dendrogram of clusters formed from the C-horizon
 chemical element data. Another way to choose the height at which to cut
-to determine clusters is to find an obvious breaking point as seen on
-this dendogram. Since we already chose a k value from the gap statistic,
-that is not needed here but can be a handy tool.
+to determine clusters is to find an obvious breaking point, as seen on
+this dendrogram. Since we already chose a k value from the gap statistic,
+that is not needed here, but can be a handy tool.
 
 ``` r
 best_hclust_cut <- cutree(best_hclust, k = 7)
@@ -226,7 +226,7 @@ best_hclust_cut
 
 Now that a best value for k has been chosen, the best version of the
 hierarchical clustering on the c-horizon data was performed. First, the
-hierarchical clustering was performed and then the dendogram was cut
+hierarchical clustering was performed, and then the dendrogram was cut
 using a k value of 7. The resulting clusters are shown.
 
 Comparative Analysis:
