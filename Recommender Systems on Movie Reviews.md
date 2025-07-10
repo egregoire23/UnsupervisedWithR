@@ -110,9 +110,9 @@ a lot of blanks/NAs.
 image(movies[1:100, 1:100], main = "100 Raw Ratings", ylab = "Users", xlab = "Movies")
 ```
 
-![](Recommender-Systems-on-Movie-Reviews_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Graphs&Images/Recommender-Systems-on-Movie-Reviews_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
-This plot shows the first 100 raw ratings of the Movie Lense sample. It
+This plot shows the first 100 raw ratings of the MovieLense sample. It
 is quite difficult to get a good grasp on the trends due to the gray
 scale and sparse nature of this graph.
 
@@ -122,11 +122,11 @@ hist(colCounts(movies), main = "Ratings per Movie", xlab = "Movie")
 hist(rowCounts(movies), main = "Ratings Given by Users", xlab = "Users")
 ```
 
-![](Recommender-Systems-on-Movie-Reviews_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Graphs&Images/Recommender-Systems-on-Movie-Reviews_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 These two distributions show that a small number of movies have been
 rated many times by the users, and similarly, a small number of users
-have given the highest number of ratings leading to these skewed graphs.
+have given the highest number of ratings, leading to these skewed graphs.
 
 Implementing a User-based Recommender System:
 
@@ -295,8 +295,8 @@ ib_error
 
 After creating an item-based recommender system with the same criteria,
 we can see that it performs pretty similarly in terms of error as the
-user-based system did. Overall the user-based recommender system had
-slight better error rates, as seen by lower MSE, RMSE, and MAE. However,
+user-based system did. Overall, the user-based recommender system had
+slightly better error rates, as seen by lower MSE, RMSE, and MAE. However,
 since the error measurements are in the same range, I do think that the
 item-based recommender system likely also performed relatively well.
 
@@ -390,7 +390,7 @@ table(user_based_preds@items$`4`, item_based_preds@items$`4`)
 These tables show the movies recommended by the user-based recommender
 system on the rows and the item-based recommender system on the columns.
 All of these tables show that the movies recommended for each user were
-completely different dependent on the model.
+completely different, depending on the model.
 
 ``` r
 Model = c('UBCF', 'IBCF')
@@ -405,8 +405,8 @@ Error_Rate_Table
     ## 1  UBCF 1.1965 1.4315 0.9371
     ## 2  IBCF 1.4016 1.9644 1.0077
 
-Based on this error table, the models performed similarly with regards
-to its error results. However, the user-based recommender system overall
+Based on this error table, the models performed similarly with regard
+to their error results. However, the user-based recommender system overall
 has better results in terms of error. This may be the reason for the big
 differences in recommendations for the users. It is possible that the
 user-based recommender chose movies to recommend that were better suited
@@ -449,7 +449,7 @@ recall help to determine the recommender system’s relevance. The values
 for recall and precision that were received from this system’s
 evaluation scheme are extremely low. Typically, we would want to see
 values over 80% to say that a system has great relevance. Unfortunately,
-that is not the case here and this model did quite poorly at providing
+that is not the case here, and this model did quite poorly at providing
 recommendations in terms of relevance. This is also confusing after we
 just noted that the error rates for the user-based recommender system
 appeared as though they did a good job at providing recommended movies
@@ -501,7 +501,7 @@ Novelty is a goal that helps us ensure that we are presenting new
 options for users. To evaluate the recommender system’s novelty, I
 verified if any of the movies that the model recommended for the user
 had been previously rated by the user. For all five of the users, none
-of the movies that have been recommended to them by the model had been
+of the movies that had been recommended to them by the model had been
 rated by them before. Based on this factor alone, I believe that this
 user-based recommender system’s novelty is high.
 
@@ -582,7 +582,7 @@ of the recommendations provided to users. It is important to recommend
 movies in a genre that the user likes, yet still show a wide variety of
 movies and genres. This goes hand and hand with novelty, since we do not
 want to only show one type of movie, which promotes low diversity and
-also low novelty as it does not allow the user to try new genres. Based
+also low novelty, as it does not allow the user to try new genres. Based
 on the genres that were recommended to each user, this user-based
 recommender system does a pretty good job at promoting diversity. Of the
 19 genres, most of the users received movies in approximately 9 genres.
@@ -756,12 +756,12 @@ colSums(genres_for_user4[4:22])
     ##           0
 
 The last goal of a recommender system is serendipity, which takes into
-account the amount to which the recommendations are unexpected or
-suprising. To measure this, I looked at the genres that the users had
+account the extent to which the recommendations are unexpected or
+surprising. To measure this, I looked at the genres that the users had
 originally rated compared to the genres that we recommended. For the
 most part, the user-based recommender system only recommended movies in
 genres that the users had already consumed and rated. There are only a
-couple of instances that the recommender system provided a
+couple of instances in which the recommender system provided a
 recommendation for a genre that a user had never rated a movie in
 before. This leads me to believe that the recommender system is
 prioritizing other goals over serendipity.
