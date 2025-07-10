@@ -65,12 +65,12 @@ str(wine)
 pairs(wine, main = "Pairs Plot of Wine Data")
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 This pairs plot shows the associations between each of the variables in
-the wine data set. There does not seem to be any clear or extreme
-correlations. But it is possible taht some outliers are present in the
-data set.
+the wine dataset. There does not seem to be any clear or extreme
+correlations. But it is possible that some outliers are present in the
+dataset.
 
 ``` r
 which(is.na(wine) == TRUE)
@@ -114,7 +114,7 @@ boxplot(wine[ , c(8, 9, 10)])
 mtext("Boxplots of Wine Data Variables", side = 3, outer = TRUE, line = 1, cex = 1.5)
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 These boxplots show the distribution of ranges of each variable in the
 wine dataset. There appears to be a pretty large number of outliers,
@@ -203,17 +203,17 @@ wine_labelled[c(152, 259),]
     ## 259       5   red
 
 Overall, the quality of the data is high. There are no missing data
-points. The structure is consistent as noted by all variables are in the
-correct data type and uniform since almost all of the data types are
+points. The structure is consistent, as noted by all variables being in the
+correct data type and uniform, since almost all of the data types are
 numerical. This is also seen when combining the red and white wine data,
 all variables aligned and merged without difficulty or inconsistencies.
 Having a high number of observations is also an advantage of this
 dataset. However, one downside is that there are more than double the
-number of white wine samples as there are red wine samples. This may
+number of white wine samples than there are red wine samples. This may
 lead to unintended bias towards white wine that we should be aware of
 going forward. With regards to outliers, all of the outliers that are
 high in sulphates are red wines. The same holds true for fixed acidity
-and chlorides as well.This may mean that the red wine has more
+and chlorides as well. This may mean that the red wine has more
 versatility across the variables than the white wine does.
 
 Implementing PCA & Kmeans on the principal components:
@@ -222,7 +222,7 @@ Implementing PCA & Kmeans on the principal components:
 plot(gap_kmeans, main = "Gap Statistic: kmeans")
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 This graph shows the gap statistic on the wine data when using the
 k-means algorithm. Based on this graph, I believe that the best choice
@@ -235,16 +235,16 @@ best_wine_km <- kmeans(wine_pc$x, centers = 5, nstart = 10)
 fviz_pca_biplot(wine_pc, label = "var", habillage = wine_labelled$color, col.var = "black", title = "Biplot of Wine Principal Components")
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 This biplot shows the loading vectors over the observations of red and
 wine data. Some clear observations can be made from this graph. The red
 and white wines have a clear separation with different variables that
-heavily correlate with them. White wine can be identified by their
+heavily correlate with them. White wine can be identified by its
 levels of citric acid, residual sugar, and sulfur dioxide. Other
 variables do not play as much of a role in defining white wine. Red wine
 is driven by the variables of chloride, sulfates, and acidity/pH. The
-other variable loadings to not provide as much information about red
+other variable loadings do not provide as much information about red
 wine.
 
 ``` r
@@ -256,23 +256,23 @@ legend("bottomright", legend = levels(wine_labelled$color), pch = shapes)
 legend("topright", legend = levels(as.factor(best_wine_km$cluster)), col = colors, pch = shapes)
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 This graph shows the results of the k-means algorithm on the first two
 principal components. Since the optimal k value was determined to be
 five, there are five clusters shown in the graph. Although it is a bit
 challenging to see in the graph due to the amount of overlapping and
-density of the clusters, three clusters fall mainly into white wine and
-two fall into red wine. Each of the five clusters does create its own
-region and although there is some overlapping between the regions, it is
-mostly distinctive with the clusters just being very close to each
+density of the clusters, three clusters fall mainly into white wine, and
+two fall into red wine. Each of the five clusters creates its own
+region, and although there is some overlapping between the regions, it is
+mostly distinctive, with the clusters just being very close to each
 other. The white wine is clustered pretty evenly across the red, blue,
-and green clusters and the red wine is divided by the orange and purple
+and green clusters, and the red wine is divided by the orange and purple
 clusters. Since these clusters create such distinct pockets, we can
 infer that there are multiple types of each color of wine. For example,
 red wine may have a cluster for sweet and a cluster for dry.
 
-Fitting a Self-organizing Map:
+Fitting a Self-Organizing Map:
 
 ``` r
 wine_scaled <- scale(wine) # also used scaling with principal components and kmeans but was taken care of directly in the pca function.
@@ -283,7 +283,7 @@ plot(wine_som, type = "mapping", main = "Wine Data Self-Organizing Map", col = w
 legend("bottomright", legend = levels(wine_labelled$color), col = unique(wine_labelled$color), pch = 1)
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 This graph shows the self-organizing map for the wine data. The map
 predominantly shows samples with white wine, which makes sense since
@@ -292,7 +292,7 @@ unit that is predominantly filled with red wine observations, there
 always appears to be some white wine observations that sneak in also,
 except for two fully red wine units that have a smaller number of
 observations inside. Similarly, there are many units of mostly white
-wine that have a couple of red wine samples trickle over but it is not
+wine that have a couple of red wine samples trickle over, but it is not
 as common.
 
 ``` r
@@ -304,12 +304,12 @@ plot(wine_hc, main = "Wine Codebook Dendogram")
 abline(h=3.5, col = "red")
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
-This graph shows the dendogram created by hierarchical clustering on the
-wine codebooks. Based on this, a good choice to cut the dendogram would
+This graph shows the dendrogram created by hierarchical clustering on the
+wine codebooks. Based on this, a good choice to cut the dendrogram would
 be at a height of three and a half. A line was drawn at this height to
-demonstrate and help determine the best line to cut at to create the
+demonstrate and help determine the best line to cut to create the
 clusters.
 
 ``` r
@@ -331,20 +331,20 @@ plot(wine_som, type = "mapping", col = wine_colors[wine_labelled$color], bgcol =
 add.cluster.boundaries(wine_som, wine_som_cluster)
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-After cutting the dendogram at the height of 3.5, six hierarchical
+After cutting the dendrogram at a height of 3.5, six hierarchical
 clusters were created. This graph shows how the self-organizing map of
 the wine data was clustered. The black circles represent the white wine
-observations and the white circles represent red wine samples. The
+observations, and the white circles represent red wine samples. The
 bigger, brightly-colored units represent the clusters that were created.
 There are three big clusters that emerge and four significantly smaller
 clusters. The pink, purple, and red clusters both represent units that
 are made of mostly white wine observations. The blue, green, and orange
 clusters represent most red wine samples. This representation gives a
 clear visualization that red and white wines have distinct
-characteristics and for the most part can be easily classified into
-their own clusters. There are only a few stragglers that end up being
+characteristics and, for the most part, can be easily classified into
+their own clusters. There are only a few stragglers that end up 
 with the opposite wine color.
 
 ``` r
@@ -354,24 +354,24 @@ for(i in 1:12){
 }
 ```
 
-![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
+![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](Graphs&Images/PCA,-Kmeans,---SOM-on-Wine-Data_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
-These phase-plots show how the different variables affect and are
-distributed across the wine data’s self organizing maps. Both fixed and
+These phase plots show how the different variables affect and are
+distributed across the wine data’s self-organizing maps. Both fixed and
 volatile acidity show high concentrations of dark red to the left of the
 map and lighter orange and yellow to the right of the map. Since we know
 that the red wines are mostly located to the right of the map, this
 means that red wine has higher concentrations of acidity than white
-wine. Citric acid shows that white wine lays in the middle of the
-concentration scale but red wine falls on both sides of the extreme.
-Residual sugar appears to be low for most wines, regardless of color
-excepts for a small grouping that lives in the upper left units. For the
+wine. Citric acid shows that white wine lies in the middle of the
+concentration scale, but red wine falls on both sides of the extreme.
+Residual sugar appears to be low for most wines, regardless of color,
+except for a small grouping that lives in the upper left units. For the
 most part, the wines in the dataset are low in chlorides and sulphates
-with the exception of a couple outliers in the upper right area. Sulfer
+with the exception of a couple of outliers in the upper right area. Sulfur
 dioxide levels appear to be associated more highly with white wines. The
-density of the wine observations appear to be split roughly in half
+density of the wine observations appears to be split roughly in half
 having a high density and half having a low density. However, these
-occur relatively regardless of wine color. A similar pattern as the
+occur relatively regardless of wine color. A similar pattern to the
 density variable also occurs with the pH and alcohol variables. Lastly,
 quality appears to be in the mid-range for the majority of the samples,
 with some of the white wines reaching the highest quality.
@@ -381,12 +381,12 @@ Evaluation & Comparative Analysis:
 Working on the principal components of the wine data set, the k-means
 algorithm found the best number of clusters to be five. Meanwhile,
 working on the self-organizing map, the hierarchical clustering found
-the best number of cluster to be six. Looking at the graphs of both
+the best number of clusters to be six. Looking at the graphs of both
 clusterings, they both found that the clusters have pretty distinct
-groupings although they are very close together and overlap at times.
+groupings, although they are very close together and overlap at times.
 The hierarchical clusterings produced one large cluster with the
 remaining being small pocket clusters, while the kmeans algorithm had
-more evenly sized clusters. The clusters in the k-means on the principal
+more evenly sized clusters. The clusters in the kmeans on the principal
 components are much more uniform in size and shape. The clusters of both
-methods tend to contain a majority of either red or white wines and no
+methods tend to contain a majority of either red or white wines, and no
 clusters contain an evenly balanced mix of the two wine colors.
